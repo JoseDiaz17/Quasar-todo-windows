@@ -1,22 +1,22 @@
 # Quasar App (todo-windows)
 
-A Quasar Framework app
+Quasar Framework app
 
-## Install the dependencies
+## Instalar las dependencias
 ```bash
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Iniciar la app para desarrollo(spa)
 ```bash
 quasar dev
 ```
 
 
-### Build the app for production
+### Compilar(windows)
 ```bash
-quasar build
+quasar build -m electron 
 ```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+### Compilada dentro de todo app
+
