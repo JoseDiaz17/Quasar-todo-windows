@@ -1,22 +1,19 @@
 import * as firebase from "firebase/app"
 
 import "firebase/firestore"
-import "firebase/auth"
 
 // Agregar configuración firebase:
 var firebaseConfig = {
-    apiKey: "AIzaSyCD3Z0eWUEgMM5mSiIY8mupGiD3vIEIsyk",
-    authDomain: "my-project-1572024801549.firebaseapp.com",
-    databaseURL: "https://my-project-1572024801549.firebaseio.com",
-    projectId: "my-project-1572024801549",
-    storageBucket: "my-project-1572024801549.appspot.com",
-    messagingSenderId: "1084585016299",
-    appId: "1:1084585016299:web:0ebe808977ad83e7a737ae",
-    measurementId: "G-3BHR5STP5R"
-  };
+  apiKey: "AIzaSyD7jYYOhDjFCXFJwJb8M8d4sLcIjgYKVME",
+  authDomain: "app-quasar.firebaseapp.com",
+  databaseURL: "https://app-quasar.firebaseio.com",
+  projectId: "app-quasar",
+  storageBucket: "app-quasar.appspot.com",
+  messagingSenderId: "846260216738",
+  appId: "1:846260216738:web:cf1bd2f8d1951f1e2bc8fb"
+};
 
 let firebaseApp = firebase.initializeApp(firebaseConfig)
-let firebaseAuth = firebaseApp.auth()
 let db = firebase.firestore();
 
-export { firebaseAuth, db }
+export { firebaseApp, db }
