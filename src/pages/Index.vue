@@ -1,5 +1,6 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
+    <q-input label="Buscar..." filled v-model="filtro" />
     <!-- Editor -->
     <q-editor
       v-if="!modoEdicion"
@@ -35,13 +36,13 @@
       ]"
     />
     <!-- Donde se pinta -->
-    <q-card flat bordered class="row justify-between" v-for="(item, index) in tasks" :key="index">
+    <q-card flat bordered class="row justify-between" v-for="(item, index) in arrayFiltrado" :key="index">
       <q-card-section v-html="item.texto" class="col" :class="item.estado ? 'tachar' : ''"></q-card-section>
       <q-btn flat color="yellow" @click="editar(index, item.id)">Editar</q-btn>
       <q-btn flat color="red" @click="eliminar(index, item.id)">Eliminar</q-btn>
       <q-space />
     </q-card>
-    <div v-if="tasks.length == 0" class="flex flex-center">
+    <div v-if="arrayFiltrado.length == 0" class="flex flex-center">
       <p class="text-h6">Sin notas</p>
     </div>
   </div>
@@ -56,11 +57,26 @@ export default {
       tasks: [],
       index: null,
       modoEdicion: false,
-      id: null
+      id: null,
+      texto: '',
+      arrayFiltrado: []
     };
+  },
+  computed: {
+    filtro:{
+      get(){
+        return this.texto;
+      },
+      set(value){
+        value = value.toLowerCase();
+        this.arrayFiltrado = this.tasks.filter(item => item.texto.toLowerCase().indexOf(value) !== -1);
+        this.texto = value;
+      }
+    }
   },
   created() {
     this.mostrarTask();
+    this.arrayFiltrado = this.tasks;
   },
   methods: {
     async mostrarTask() {
